@@ -9,7 +9,7 @@ type SearchIconProps = {
 };
 
 function Search() {
-  const [textInputValue, setTextInputValue] = useState("");  
+  const [textInputValue, setTextInputValue] = useState("");
 
   return (
     <form action="" className="bg-gray-800 rounded-lg flex">
@@ -20,22 +20,22 @@ function Search() {
         value={textInputValue}
         onChange={(event) => setTextInputValue(event.target.value)}
       />
-      
-        <Button variant="icon">
-          <SearchIcon  />
-        </Button>
+
+      <Button variant="icon">
+        <SearchIcon />
+      </Button>
     </form>
   );
 }
 
-const SearchIcon = ({size = "2em"}: SearchIconProps) => {
-    return (
-      <IconContext.Provider value={{ size }}>
-            <div>
-              <CiSearch />
-            </div>
-          </IconContext.Provider>
-    )
-  }
+const SearchIcon = ({ size = "2em" }: SearchIconProps) => {
+  return (
+    <IconContext.Provider value={{ size }}>
+      <div>
+        <CiSearch />
+      </div>
+    </IconContext.Provider>
+  );
+};
 
-export {Search, SearchIcon}
+export { Search, SearchIcon };

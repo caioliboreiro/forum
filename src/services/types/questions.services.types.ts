@@ -11,5 +11,15 @@ export interface fetchRecentQuestionsResponse {
 }
 
 export interface fetchQuestionInfoBySlugResponse {
-  questions: Question[];
+  question: {
+    questionId: string;
+    authorId: string;
+    author: string;
+    title: string;
+    content: string;
+    slug: string;
+    attachments: string[];
+    createdAt: string;
+    updatedAt: string;
+  };
 }
