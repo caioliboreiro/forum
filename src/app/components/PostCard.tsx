@@ -7,7 +7,7 @@ interface PostProps {
   createdAt: string;
 }
 
-export default function Post({ title, slug, createdAt }: PostProps) {
+export default function PostCard({ title, slug, createdAt }: PostProps) {
   return (
     <Link href={`/posts/${slug}`}>
       <div className="flex justify-between p-4 bg-gray-900 rounded-lg hover:bg-gray-800">

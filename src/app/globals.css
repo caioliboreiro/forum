@@ -4,12 +4,16 @@
   --background: #ffffff;
   --foreground: #171717;
   --primary: #41CD52;
+  --secondary: #81C784;
+  --light-gray: #404040;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-light-gray: var(--light-gray);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -21,8 +25,13 @@
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  background: var(--color-gray-950);
+  background: var(--background);
+  min-height: 100%;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

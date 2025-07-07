@@ -1,16 +1,16 @@
 'use client'
-import { CiSearch } from "react-icons/ci";
+import { FaUserCircle } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
-type SearchIconProps = {
+interface UserIconProps {
   size?: string;
-};
+}
 
-export default function SearchIcon({ size = "2em" }: SearchIconProps) {
+export default function UserIcon({ size = "2em" }: UserIconProps) {
   return (
     <IconContext.Provider value={{ size }}>
       <div>
-        <CiSearch />
+        <FaUserCircle />
       </div>
     </IconContext.Provider>
   );

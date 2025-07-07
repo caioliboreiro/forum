@@ -1,5 +1,5 @@
 import { fetchRecentQuestions } from "@/services/questions.service";
-import Post from "./Post";
+import PostCard from "./PostCard";
 
 export default async function RecentPosts() {
   const recentQuestions = await fetchRecentQuestions(1);
@@ -7,7 +7,7 @@ export default async function RecentPosts() {
     <ul className="p-10">
       {recentQuestions.questions.map((question) => (
         <li key={question.id}>
-          <Post
+          <PostCard
             title={question.title}
             slug={question.slug}
             createdAt={question.createdAt}

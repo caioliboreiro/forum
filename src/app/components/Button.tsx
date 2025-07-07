@@ -17,7 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
   const base = 'px-4 py-2 rounded text-sm font-medium transition-colors duration-200 hover:cursor-pointer';
 
   const variants: Record<NonNullable<ButtonProps['variant']>, string> = {
-    filled: 'bg- text-white hover:bg-brand/90',
+    filled: 'bg-primary text-white active:bg-secondary',
     outline: 'border border-brand text-brand hover:bg-brand/10',
     icon: ''
   };

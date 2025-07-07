@@ -8,11 +8,8 @@ async function fetchRecentQuestions(
   page: number
 ): Promise<fetchRecentQuestionsResponse> {
   try {
-    const { data } = await api.get<fetchRecentQuestionsResponse>("/questions", {
-      params: {
-        page,
-      },
-    });
+    const response = await api.get("/questions");
+    const data = await response.json();
     return data;
   } catch (error: any) {
     console.error("Erro ao pegar as perguntas recentes ", error);
@@ -20,11 +17,14 @@ async function fetchRecentQuestions(
   }
 }
 
-async function fetchQuestionInfoBySlug(slug: string) {
+async function fetchQuestionInfoBySlug(
+  slug: string
+): Promise<fetchQuestionInfoBySlugResponse> {
   try {
-    const { data } = await api.get<fetchQuestionInfoBySlugResponse>(
+    const response = await api.get(
       `/questions/${slug}`
     );
+    const data = await response.json()
     return data;
   } catch (error: any) {
     console.error("Erro ao pegar informações da pergunta ", error);
@@ -32,7 +32,4 @@ async function fetchQuestionInfoBySlug(slug: string) {
   }
 }
 
-
-
 export { fetchRecentQuestions, fetchQuestionInfoBySlug };
-

@@ -1,29 +1,34 @@
-import axios from 'axios';
+const BASE_URL = "http://localhost:3333";
+import { cookies } from "next/headers";
 
-const api = axios.create({
-  baseURL: 'http://localhost:3333',
-  headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  },
-  timeout: 10000,
+const getHeaders = async () => ({
+  Cookie: (await cookies()).toString(),
 });
 
-// api.interceptors.request.use(async (config) => {
-//   try {
-//     const token = localStorage.getItem('forumAccessToken');
+const api = () => {
+  async function get(url: string) {
+    const response = await fetch(BASE_URL + url, {
+      headers: { ...(await getHeaders()) },
+    });
 
-//     if (token) {
-//       config.headers.Authorization = `Bearer ${token}`;
-//     }
-//     return config;
-//   } catch (error) {
-//     console.error('Erro ao configurar requisição:', error);
-//     return Promise.reject(error);
-//   }
-// }, (error) => {
-//   console.error('Erro no interceptor de requisição:', error);
-//   return Promise.reject(error);
-// });
+    return response;
+  }
 
-export default api;
+  async function post(url: string, body?: { [key: string]: any }) {
+    const response = await fetch(BASE_URL + url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(await getHeaders()),
+      },
+      body: JSON.stringify(body),
+    });
+
+    return response;
+  }
+
+  return { get, post };
+};
+
+export default api();
+

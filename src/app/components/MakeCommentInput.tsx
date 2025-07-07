@@ -9,7 +9,7 @@ export default function MakeCommentInput() {
     <input
       className="w-full px-3 py-2 text-white placeholder-gray-300 border border-gray-200 rounded-3xl"
       type="text"
-      placeholder="Se junte a discussão"
+      placeholder="Se junte à discussão"
       value={textInputValue}
       onChange={(event) => setTextInputValue(event.target.value)}
     />
